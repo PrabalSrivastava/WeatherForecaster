@@ -121,6 +121,7 @@
 						<configuration>
 							<arguments>run test:headless</arguments>
 							<workingDirectory>${project.basedir}/frontend</workingDirectory>
+							<skip>${skipFrontendTests}</skip>
 						</configuration>
 					</execution>
 				</executions>
@@ -161,6 +162,9 @@
 							<goal>build</goal>
 						</goals>
 						<phase>package</phase>
+						<configuration>
+							<skip>${skipDocker}</skip>
+						</configuration>
 					</execution>
 					<execution>
 						<id>push-image</id>
@@ -168,6 +172,9 @@
 							<goal>push</goal>
 						</goals>
 						<phase>package</phase>
+						<configuration>
+							<skip>${skipDocker}</skip>
+						</configuration>
 					</execution>
 				</executions>
 				<configuration>

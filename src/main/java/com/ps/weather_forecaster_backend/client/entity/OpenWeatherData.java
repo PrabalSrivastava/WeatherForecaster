@@ -29,6 +29,22 @@ public class OpenWeatherData {
 
     private String dt_txt;
 
+    public String getDt_txt() {
+        return dt_txt;
+    }
+
+    public Main getMain() {
+        return main;
+    }
+
+    public Wind getWind() {
+        return wind;
+    }
+
+    public List<Weather> getWeather() {
+        return weather;
+    }
+
     @Getter @Setter
     public static class Main {
 
@@ -50,6 +66,14 @@ public class OpenWeatherData {
 
         private int temp_kf;
 
+        public double getTemp_min() {
+            return temp_min;
+        }
+
+        public double getTemp_max() {
+            return temp_max;
+        }
+
     }
 
     @Getter @Setter
@@ -61,6 +85,10 @@ public class OpenWeatherData {
         private String description;
 
         private String icon;
+
+        public String getMain() {
+            return main;
+        }
 
     }
 
@@ -79,6 +107,10 @@ public class OpenWeatherData {
         private int deg;
 
         private double gust;
+
+        public double getSpeed() {
+            return speed;
+        }
 
     }
 

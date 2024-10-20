@@ -16,4 +16,12 @@ public class OpenWeatherResponseEntity {
     private List<OpenWeatherData> list;
 
     private OpenWeatherCity city;
+
+    public String getCod() {
+        return cod;
+    }
+
+    public List<OpenWeatherData> getList() {
+        return list;
+    }
 }
