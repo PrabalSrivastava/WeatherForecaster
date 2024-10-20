@@ -113,6 +113,16 @@
 							<workingDirectory>${project.basedir}/frontend</workingDirectory>
 						</configuration>
 					</execution>
+					<execution>
+						<id>npm run test</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>run test:headless</arguments>
+							<workingDirectory>${project.basedir}/frontend</workingDirectory>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -143,7 +153,7 @@
 			<plugin>
 				<groupId>io.fabric8</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.39.1</version> <!-- Ensure the correct version -->
+				<version>0.39.1</version>
 				<executions>
 					<execution>
 						<id>build-image</id>
@@ -163,9 +173,9 @@
 				<configuration>
 					<images>
 						<image>
-							<name>prabalsrivastava/${project.name}:${project.version}</name> <!-- Image name -->
+							<name>prabalsrivastava/${project.name}:${project.version}</name>
 							<build>
-								<dockerFile>${project.basedir}/Dockerfile</dockerFile> <!-- Correct way to specify Dockerfile -->
+								<dockerFile>${project.basedir}/Dockerfile</dockerFile>
 							</build>
 						</image>
 					</images>
