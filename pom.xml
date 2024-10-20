@@ -11,7 +11,7 @@
 	<groupId>com.ps</groupId>
 	<artifactId>weather-forecaster-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>WeatherForecaster</name>
+	<name>weatherforecaster</name>
 	<description>City Weather Forecast Microservice This service provides a 3-day weather forecast for any city, displaying high and low temperatures. If specific weather conditions are met, such as rain, high winds, or temperatures above 40°C, users will receive relevant suggestions like &quot;Carry an umbrella&quot; or &quot;Use sunscreen.&quot;</description>
 	<url/>
 	<licenses>
@@ -140,6 +140,37 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.39.1</version> <!-- Ensure the correct version -->
+				<executions>
+					<execution>
+						<id>build-image</id>
+						<goals>
+							<goal>build</goal>
+						</goals>
+						<phase>package</phase>
+					</execution>
+					<execution>
+						<id>push-image</id>
+						<goals>
+							<goal>push</goal>
+						</goals>
+						<phase>package</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<images>
+						<image>
+							<name>prabalsrivastava/${project.name}:${project.version}</name> <!-- Image name -->
+							<build>
+								<dockerFile>${project.basedir}/Dockerfile</dockerFile> <!-- Correct way to specify Dockerfile -->
+							</build>
+						</image>
+					</images>
+				</configuration>
+			</plugin>
 		</plugins>
 		<resources>
 			<resource>
@@ -149,6 +180,7 @@
 				</excludes>
 			</resource>
 		</resources>
+		<finalName>${project.artifactId}-${project.version}</finalName>
 	</build>
 
 </project>
