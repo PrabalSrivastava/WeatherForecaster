@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>Enter City Name</h2>
+  <form (ngSubmit)="submit()">
+    <div class="mb-3">
+      <label for="city" class="form-label">City</label>
+      <input type="text" [(ngModel)]="city" name="city" id="city" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Get Weather</button>
+  </form>
+</div>

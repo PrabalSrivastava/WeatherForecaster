@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Weather for {{ city }}</h2>
+  <div *ngIf="weatherData">
+    <h3>Next 3 Days:</h3>
+    <ul>
+      <li *ngFor="let forecast of weatherData.forecasts">
+        Date: {{ forecast.date }} - High: {{ forecast.highTemp }}°C - Low: {{ forecast.lowTemp }}°C - Recommendation: {{ forecast.recommendation }}
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!weatherData">
+    <p>Loading...</p>
+  </div>
+</div>

@@ -28,9 +28,12 @@ public class OpenWeatherClient {
 
     private final OpenWeatherClientConfig clientConfig;
 
+    private final String apiKey;
+
     @Autowired
-    public OpenWeatherClient(OpenWeatherClientConfig clientConfig) {
+    public OpenWeatherClient(OpenWeatherClientConfig clientConfig, String apiKey) {
         this.clientConfig = clientConfig;
+        this.apiKey = apiKey;
     }
 
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -62,7 +65,7 @@ public class OpenWeatherClient {
         try {
             return new URIBuilder(this.clientConfig.getApiBaseUrl())
                     .addParameter("q", city)
-                    .addParameter("appid", this.clientConfig.getApiKey())
+                    .addParameter("appid", this.apiKey)
                     .addParameter("cnt", String.valueOf(DEFAULT_FORECAST_COUNT))
                     .build();
         } catch (URISyntaxException ex) {

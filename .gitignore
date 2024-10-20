@@ -32,3 +32,10 @@ build/
 ### VS Code ###
 .vscode/
 src/main/resources/application-dev.properties
+
+# static
+src/main/resources/static/favicon.ico
+src/main/resources/static/index.html
+src/main/resources/static/main-**.js
+src/main/resources/static/polyfills-**.js
+src/main/resources/static/styles-**.css
