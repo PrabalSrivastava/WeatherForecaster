@@ -17,6 +17,7 @@ export class WeatherDisplayComponent implements OnInit {
   city: string | undefined = undefined;
   weatherData: any = undefined;
   errorMessage: string | undefined = undefined;
+  offlineMode: boolean = false;
 
   constructor(private route: ActivatedRoute, private weatherService: WeatherService, private router: Router) {}
 
@@ -24,6 +25,7 @@ export class WeatherDisplayComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (!params['city']) this.router.navigate(['/error', 'City field empty!']);
       this.city = params['city'];
+      this.offlineMode = params['offline'] === 'true';
       this.fetchWeather();
     });
   }
@@ -37,7 +39,7 @@ export class WeatherDisplayComponent implements OnInit {
 
   fetchWeather() {
     if (this.city) {
-      this.weatherService.getWeather(this.city).pipe(
+      this.weatherService.getWeather(this.city, this.offlineMode).pipe(
          catchError(error => {
            // Redirect to error page with error message
            this.router.navigate(['/error', error.error.message || 'An unexpected error occurred.']);
@@ -47,5 +49,5 @@ export class WeatherDisplayComponent implements OnInit {
         this.weatherData = data;
       });
     }
-  }
+    }
 }
