@@ -1,19 +1,124 @@
 /* You can add global styles to this file, and also import other style files */
 .container {
-  margin-top: 50px;
+  max-width: 800px;
 }
 
 .card {
-  background-color: #f9f9f9;
-  border: 1px solid #e0e0e0;
+  border-radius: 10px;
 }
 
-.weather-icon img {
-  width: 50px;
-  height: 50px;
-  float: right;
+.card-title {
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
-h2 {
+.card-text {
+  font-size: 1rem;
+}
+
+button {
+  width: 150px;
+}
+
+/* Ensure the container takes the full viewport */
+.city-input-container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background image with blur effect */
+.city-input-container .background {
+  position: fixed; /* Fixed to cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  background-image: url('assets/weather-background.png'); /* Your weather-related image */
+  background-size: cover; /* Ensures the image covers the entire screen */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents image repetition */
+  /*filter: blur(4px); /* Adjust the blur intensity as needed */
+  z-index: -1; /* Ensures the background stays behind the form content */
+}
+
+/* Form content */
+.city-input-container .content {
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a semi-transparent background */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+
+
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Arrange children in a column */
+  align-items: center; /* Center horizontally */
+  justify-content: flex-start; /* Align items to the top */
+  position: relative; /* Position context for top adjustment */
+  bottom: 7%; /* Adjust this value to move it down slightly */
+  left: 30%;
+}
+
+/* Center-align the form label and input */
+.city-input-container .content h2 {
   margin-bottom: 20px;
 }
+
+.city-input-container .content .form-control {
+  text-align: center;
+}
+
+.btn {
+   /* No background */
+  border: none; /* No border */
+  padding: 0; /* Remove padding */
+  color: #007bff; /* Change icon color (Bootstrap primary color) */
+  cursor: pointer; /* Change cursor to pointer */
+  width: auto; /* Allow the button to size according to the icon */
+  height: auto; /* Allow the button to size according to the icon */
+  font-size: 1.1rem;
+}
+
+.alert {
+  text-align: center; /* Center align the warning message */
+}
+
+/*weather*/
+/* Ensure the weather display takes the full viewport */
+.weather-display-container {
+  position: absolute; /* Absolute positioning to cover the viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px; /* Add padding */
+  border-radius: 0; /* No rounded corners for full coverage */
+  overflow: hidden; /* Ensure children do not overflow */
+  z-index: 1; /* Keep it above the background */
+}
+
+/* Background image with blur effect */
+.weather-display-container::before {
+  content: '';
+  position: absolute; /* Position the background image absolutely */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('assets/weather-background.png'); /* Your weather-related image */
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  filter: blur(4px); /* Adjust the blur intensity as needed */
+  z-index: -1; /* Keep it behind the content */
+}
+
+.card {
+  border-radius: 10px; /* Round corners for each card */
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background for cards */
+  width: 70%;
+}
+

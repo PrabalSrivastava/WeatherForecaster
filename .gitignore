@@ -39,3 +39,4 @@ src/main/resources/static/index.html
 src/main/resources/static/main-**.js
 src/main/resources/static/polyfills-**.js
 src/main/resources/static/styles-**.css
+src/main/resources/static/media/

@@ -1,14 +1,30 @@
-<div class="container">
-  <h2>Weather for {{ city }}</h2>
-  <div *ngIf="weatherData">
-    <h3>Next 3 Days:</h3>
-    <ul>
-      <li *ngFor="let forecast of weatherData.forecasts">
-        Date: {{ forecast.date }} - High: {{ forecast.highTemp }}°C - Low: {{ forecast.lowTemp }}°C - Recommendation: {{ forecast.recommendation }}
-      </li>
-    </ul>
+<div class="weather-display-container">
+  <h2 class="text-center mb-4">Weather Forecast for {{ city }}</h2>
+
+  <div *ngIf="errorMessage">
+    <p class="text-center">{{ errorMessage }}</p>
   </div>
-  <div *ngIf="!weatherData">
-    <p>Loading...</p>
+
+  <div *ngIf="weatherData">
+    <h3 class="mb-4">Next 3 Days:</h3>
+
+    <div class="row justify-content-center">
+      <div class="col-md-4" *ngFor="let forecast of weatherData.forecasts">
+        <div class="card mb-4 shadow-sm rounded">
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ forecast.date }}</h5>
+            <p class="card-text">
+              <strong>High:</strong> {{ forecast.highTemp }}°C <br>
+              <strong>Low:</strong> {{ forecast.lowTemp }}°C <br>
+              <strong>Recommendation:</strong> {{ forecast.recommendation }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!weatherData && !errorMessage">
+    <p class="text-center">Loading...</p>
   </div>
 </div>

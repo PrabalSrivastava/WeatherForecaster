@@ -17,6 +17,8 @@ export class CityInputComponent {
   submit() {
     if (this.city) {
       this.router.navigate(['/weather-display'], { queryParams: { city: this.city } });
+    } else {
+      alert('Please enter a city name.');
     }
   }
 }
