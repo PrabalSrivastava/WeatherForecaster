@@ -22,7 +22,7 @@ describe('WeatherService', () => {
 
   it('should fetch weather data from the API', () => {
     const mockWeatherData = { temp: 25, condition: 'Sunny' };
-    service.getWeather('London').subscribe((data) => {
+    service.getWeather('London', false).subscribe((data) => {
       expect(data).toEqual(mockWeatherData);
     });
 

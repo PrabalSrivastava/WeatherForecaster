@@ -36,7 +36,7 @@ The application follows a microservices architecture with a clear separation bet
    - **Admin Processes**: Run administrative or management tasks as one-off processes.
 
 ### Performance Optimization
-- Caching is implemented to reduce the number of API calls to the weather service, improving response times and reducing load.
+- Caching is implemented to reduce the number of API calls to the weather service, improving response times and reducing load. (Offline mode)
 - Lazy loading is used in the frontend to enhance performance by loading only necessary components.
 
 ### Security Aspects
