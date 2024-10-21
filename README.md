@@ -113,12 +113,18 @@ date.format.output=MMMM d, yyyy
 openweather.api.key=<your-api-key-here>
 openweather.api.baseUrl=https://api.openweathermap.org/data/2.5/forecast
 ```
+Update _`src/main/resources/application.properties`_:
+```shell script
+spring.profiles.active=dev
+```
+
 
 Now, this can be built by simply performing:
 
 ```shell script
 mvn clean package
 ```
+Note: To build project locally in _`spring.profiles.active=prod`_, _`export OPEN_WEATHER_API_KEY=<your-api-key-here>`_ in your system as a system variable.
 
 This command will build all the modules along with running both frontend and backend tests and generate the correspondent artifacts: _`.jar`_ file for the contributions. After that, it automatically push the _`.jar`_ file to docker after creating an image.
 
