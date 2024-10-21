@@ -27,6 +27,6 @@ public class WeatherRecommendationContext {
             }
         }
 
-        return !recommendations.isEmpty() ? recommendations.toString() : "-";
+        return !recommendations.isEmpty() ? recommendations.toString() : "Looking like a good day!";
     }
 }
