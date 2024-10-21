@@ -1,9 +1,8 @@
-
 # Weather Forecaster
 
 The Weather Forecaster Application provides users with the ability to search for weather forecasts by city. The application is built using Angular for the frontend and Spring Boot for the backend, utilizing [OpenWeather APIs](https://openweathermap.org/api) to fetch weather data.
 
-For more details around functionalities, requirements, installation and usage please consider this [official documentation](https://github.com/PrabalSrivastava/WeatherForecaster/blob/main/README.md)
+For more details around functionalities, requirements, installation and usage please consider this [official documentation](https://github.com/PrabalSrivastava/WeatherForecaster/blob/main/README.md) and [Swagger UI](http://localhost:8080/swagger-ui/index.html).
 
 ## Design & Architecture
 The application follows a microservices architecture with a clear separation between the frontend and backend components. The frontend is responsible for user interaction and display, while the backend handles data processing and API requests.
@@ -16,25 +15,25 @@ The application follows a microservices architecture with a clear separation bet
 ### Architectural Principles
 
 1. **SOLID Principles**:
-    - **S**ingle Responsibility: Each class in the application has a single responsibility, promoting easier maintenance and testing.
-    - **O**pen/Closed: The system is designed to be open for extension but closed for modification, allowing new features without altering existing code.
-    - **L**iskov Substitution: Subtypes can be substituted for their base types without affecting the correctness of the program.
-    - **I**nterface Segregation: Interfaces are specific to clients, preventing them from depending on methods they do not use.
-    - **D**ependency Inversion: High-level modules do not depend on low-level modules but on abstractions, facilitating easier changes.
+   - **S**ingle Responsibility: Each class in the application has a single responsibility, promoting easier maintenance and testing.
+   - **O**pen/Closed: The system is designed to be open for extension but closed for modification, allowing new features without altering existing code.
+   - **L**iskov Substitution: Subtypes can be substituted for their base types without affecting the correctness of the program.
+   - **I**nterface Segregation: Interfaces are specific to clients, preventing them from depending on methods they do not use.
+   - **D**ependency Inversion: High-level modules do not depend on low-level modules but on abstractions, facilitating easier changes.
 
 2. **12-Factor App Principles**:
-    - **Codebase**: A single codebase tracked in version control, with multiple deploys. With each build, the deployment is being done to docker.
-    - **Dependencies**: Explicitly declared and isolated dependencies which comes along with the fundamental principles of Spring Boot and Angular.
-    - **Config**: Configuration is stored in environment variables, enabling easy deployment across environments.
-    - **Backing Services**: Treated as attached resources, allowing flexibility in changing services.
-    - **Build, Release, Run**: Separation of the build, release, and run stages to ensure predictable deployments using Jenkins.
-    - **Processes**: The application runs as one or more stateless processes.
-    - **Port Binding**: The backend exposes a service via port binding, while the frontend can be served on any static server.
-    - **Concurrency**: Scaling the application by running multiple instances as needed.
-    - **Disposability**: Fast startup and graceful shutdown processes ensure reliable deployments.
-    - **Dev/Prod Parity**: Keep development and production as similar as possible.
-    - **Logs**: Treat logs as event streams, enabling log aggregation and analysis.
-    - **Admin Processes**: Run administrative or management tasks as one-off processes.
+   - **Codebase**: A single codebase tracked in version control, with multiple deploys. With each build, the deployment is being done to docker.
+   - **Dependencies**: Explicitly declared and isolated dependencies which comes along with the fundamental principles of Spring Boot and Angular.
+   - **Config**: Configuration is stored in environment variables, enabling easy deployment across environments.
+   - **Backing Services**: Treated as attached resources, allowing flexibility in changing services.
+   - **Build, Release, Run**: Separation of the build, release, and run stages to ensure predictable deployments using Jenkins.
+   - **Processes**: The application runs as one or more stateless processes.
+   - **Port Binding**: The backend exposes a service via port binding, while the frontend can be served on any static server.
+   - **Concurrency**: Scaling the application by running multiple instances as needed.
+   - **Disposability**: Fast startup and graceful shutdown processes ensure reliable deployments.
+   - **Dev/Prod Parity**: Keep development and production as similar as possible.
+   - **Logs**: Treat logs as event streams, enabling log aggregation and analysis.
+   - **Admin Processes**: Run administrative or management tasks as one-off processes.
 
 ### Performance Optimization
 - Caching is implemented to reduce the number of API calls to the weather service, improving response times and reducing load.
@@ -62,14 +61,14 @@ The application follows a microservices architecture with a clear separation bet
 ## Implementation Approach
 
 1. **Frontend**:
-    - Built using Angular, incorporating Bootstrap for styling.
-    - Forms are used to collect user input, and the results are displayed using components.
-    - HTTPClient is used for making API calls to the backend.
+   - Built using Angular, incorporating Bootstrap for styling.
+   - Forms are used to collect user input, and the results are displayed using components.
+   - HTTPClient is used for making API calls to the backend.
 
 2. **Backend**:
-    - Developed using Spring Boot, exposing RESTful APIs to provide weather data.
-    - Error handling is implemented to manage invalid city names or other issues.
-    - Data models are designed to handle JSON responses from the weather API.
+   - Developed using Spring Boot, exposing RESTful APIs to provide weather data.
+   - Error handling is implemented to manage invalid city names or other issues.
+   - Data models are designed to handle JSON responses from the weather API.
 
 ### Sequence Diagram
 A sequence diagram illustrating the interaction between the user, frontend, and backend can be created using draw.io. Here’s a sample layout for your diagram:
@@ -78,7 +77,7 @@ A sequence diagram illustrating the interaction between the user, frontend, and 
 - **Backend** retrieves weather data and sends it back to the **Frontend**.
 - **Frontend** displays the data to the **User**.
 
-You can create the diagram on draw.io and include the link or image here.
+Detailed [Sequence Diagram](https://drive.google.com/file/d/1S_hCBInHP0wYHSh0VeomUaD56mak2mO9/view?usp=sharing) and [Class Diagram](https://drive.google.com/file/d/1ntXGU0e-SHI3LPMHNXweeOmc4qBoRn07/view?usp=sharing) are here.
 
 ## Sub Modules Organization
 
@@ -92,7 +91,7 @@ You can create the diagram on draw.io and include the link or image here.
 
 ### Build
 
-Weather Forecaster is Java based Spring Boot application that uses Maven and Angular. 
+Weather Forecaster is Java based Spring Boot application that uses Maven and Angular.
 
 ```shell script
 git clone git@github.com:PrabalSrivastava/WeatherForecaster.git

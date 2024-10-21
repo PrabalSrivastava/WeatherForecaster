@@ -1,9 +1,7 @@
 package com.ps.weather_forecaster_backend.recommendation;
 
-import com.ps.weather_forecaster_backend.client.entity.OpenWeatherData.Weather;
-
-import java.util.List;
+import com.ps.weather_forecaster_backend.recommendation.entity.WeatherRecommendationInput;
 
 public interface WeatherRecommendationStrategy {
-    String generateRecommendation(double temperature, double windSpeed, List<Weather> weathers);
+    String generateRecommendation(WeatherRecommendationInput weatherRecommendationInput);
 }

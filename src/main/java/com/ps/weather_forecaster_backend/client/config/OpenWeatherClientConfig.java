@@ -12,18 +12,12 @@ import java.time.format.DateTimeFormatter;
 @Configuration
 public class OpenWeatherClientConfig {
 
-//    @Value("${openweather.api.key}")
-//    private String apiKey;
-//    //private String apiKey = System.getenv("OPEN_WEATHER_API_KEY");
-
-    // Constructor for 'dev' profile - fetch appId from application-dev.properties
     @Bean
     @Profile("dev")
     public String appKeyDev(@Value("${openweather.api.key}") String apiKey) {
         return apiKey;
     }
 
-    // Constructor for 'prod' profile - fetch appId from system environment variable
     @Bean
     @Profile("prod")
     public String appKeyProd() {
