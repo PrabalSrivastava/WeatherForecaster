@@ -6,8 +6,8 @@ import java.util.List;
 
 public class WindRecommendation implements WeatherRecommendationStrategy {
     @Override
-    public String generateRecommendation(double temperature, double windSpeed, List<Weather> weathers) {
-        if (windSpeed > 5) {
+    public String generateRecommendation(WeatherRecommendationInput input) {
+        if (input.getWindSpeed() > 5) {
             return "It's too windy, watch out!";
         }
         return "";

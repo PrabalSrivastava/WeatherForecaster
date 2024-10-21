@@ -14,11 +14,11 @@ public class WeatherRecommendationContext {
         this.strategies = strategies;
     }
 
-    public String generateRecommendations(double temperature, double windSpeed, List<Weather> weathers) {
+    public String generateRecommendations(WeatherRecommendationInput input) {
         StringBuilder recommendations = new StringBuilder();
 
         for (WeatherRecommendationStrategy strategy : strategies) {
-            String recommendation = strategy.generateRecommendation(temperature, windSpeed, weathers);
+            String recommendation = strategy.generateRecommendation(input);
             if (!recommendation.isEmpty()) {
                 if (!recommendations.isEmpty()) {
                     recommendations.append(" ");

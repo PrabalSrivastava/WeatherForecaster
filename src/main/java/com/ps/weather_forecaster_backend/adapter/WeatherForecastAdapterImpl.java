@@ -40,7 +40,7 @@ public class WeatherForecastAdapterImpl implements WeatherForecastAdapter {
                     String date = data.getDt_txt();
                     double tempMax = Double.parseDouble(String.format("%.2f", data.getMain().getTemp_max() - 273.15));
                     double tempMin = Double.parseDouble(String.format("%.2f", data.getMain().getTemp_min() - 273.15));
-                    String recommendation = recommendationContext.generateRecommendations(tempMax, data.getWind().getSpeed(), data.getWeather());
+                    String recommendation = recommendationContext.generateRecommendations(new WeatherRecommendationInput(tempMax, data.getWind().getSpeed(), data.getWeather()));
 
                     return new WeatherForecast(date, tempMax, tempMin, recommendation, this.dateHandler);
                 })
