@@ -1,10 +1,13 @@
-<div class="container">
-  <h2>Enter City Name</h2>
-  <form (ngSubmit)="submit()">
-    <div class="mb-3">
-      <label for="city" class="form-label">City</label>
-      <input type="text" [(ngModel)]="city" name="city" id="city" class="form-control" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Get Weather</button>
-  </form>
+<div class="container city-input-container">
+  <div class="background"></div> <!-- Background with blur -->
+  <div class="content">  <!-- Content on top of the background -->
+    <form (ngSubmit)="submit()" class="d-flex align-items-center"> <!-- Use Bootstrap's flex utility classes -->
+      <div class="mb-3 me-2"> <!-- Add a right margin to the input -->
+        <input type="text" placeholder="Search city" [(ngModel)]="city" name="city" id="city" class="form-control" required>
+        <button type="submit" class="btn" aria-label="Search"> <!-- Use button with no styling -->
+          <i class="fas fa-search"></i> <!-- Search icon -->
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

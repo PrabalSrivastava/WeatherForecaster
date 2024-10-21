@@ -1,0 +1,15 @@
+h1 {
+  position: absolute; /* Allows for positioning relative to the screen */
+  top: 30%; /* Position it roughly in the middle vertically */
+  left: 30%; /* Position it roughly in the middle horizontally */
+  transform: translate(-30%, -40%); /* Shift it up and to the left */
+  font-size: 3rem; /* Adjust font size as needed */
+  color: white; /* Text color, adjust as needed */
+  z-index: 1; /* Ensure it's on top of the background */
+}
+
+/* Optional: Styling for the whole page to make the background or layout clearer */
+body, html {
+  height: 100%; /* Ensure the height covers the full viewport */
+  margin: 0;
+}

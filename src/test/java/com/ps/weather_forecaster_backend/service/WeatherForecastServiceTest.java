@@ -1,5 +1,6 @@
 package com.ps.weather_forecaster_backend.service;
 
+import com.ps.weather_forecaster_backend.adapter.WeatherForecastAdapterImpl;
 import com.ps.weather_forecaster_backend.client.api.OpenWeatherClient;
 import com.ps.weather_forecaster_backend.client.entity.OpenWeatherResponseEntity;
 import com.ps.weather_forecaster_backend.exception.WeatherForecastGenericException;
@@ -28,6 +29,9 @@ public class WeatherForecastServiceTest {
     @Mock
     private OpenWeatherResponseEntity mockResponseEntity;
 
+    @Mock
+    private WeatherForecastAdapterImpl weatherForecastAdapter;
+
     @BeforeEach
     public void setup() {
         MockitoAnnotations.openMocks(this);
@@ -38,14 +42,19 @@ public class WeatherForecastServiceTest {
         String cityName = "London";
         WeatherForecastResponse expectedResponse = new WeatherForecastResponse("200", cityName, Collections.emptyList(), "");
 
+        // Mocking the OpenWeatherClient and WeatherForecastAdapterImpl responses
         when(client.getWeatherForecast(cityName)).thenReturn(mockResponseEntity);
         when(mockResponseEntity.getCod()).thenReturn("200");
+        when(weatherForecastAdapter.adapt(mockResponseEntity)).thenReturn(Collections.emptyList());
         when(mockResponseEntity.getList()).thenReturn(Collections.emptyList());
 
+        // Invoking the method under test
         WeatherForecastResponse response = weatherForecastService.getWeatherForecast(cityName);
 
+        // Validating the response
         assertEquals(expectedResponse.getStatus(), response.getStatus());
         assertEquals(expectedResponse.getCity(), response.getCity());
+        assertEquals(expectedResponse.getForecasts(), response.getForecasts());
     }
 
     @Test
