@@ -1,10 +1,10 @@
 package com.ps.weather_forecaster_backend.adapter;
 
-import com.ps.weather_forecaster_backend.client.entity.OpenWeatherData.Weather;
 import com.ps.weather_forecaster_backend.client.entity.OpenWeatherResponseEntity;
 import com.ps.weather_forecaster_backend.model.WeatherForecastResponse.WeatherForecast;
 import com.ps.weather_forecaster_backend.handler.WeatherForecastDateHandler;
 import com.ps.weather_forecaster_backend.recommendation.*;
+import com.ps.weather_forecaster_backend.recommendation.entity.WeatherRecommendationInput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -40,7 +40,7 @@ public class WeatherForecastAdapterImpl implements WeatherForecastAdapter {
                     String date = data.getDt_txt();
                     double tempMax = Double.parseDouble(String.format("%.2f", data.getMain().getTemp_max() - 273.15));
                     double tempMin = Double.parseDouble(String.format("%.2f", data.getMain().getTemp_min() - 273.15));
-                    String recommendation = recommendationContext.generateRecommendations(tempMax, data.getWind().getSpeed(), data.getWeather());
+                    String recommendation = recommendationContext.generateRecommendations(new WeatherRecommendationInput(tempMax, data.getWind().getSpeed(), data.getWeather()));
 
                     return new WeatherForecast(date, tempMax, tempMin, recommendation, this.dateHandler);
                 })
