@@ -1,6 +1,4 @@
 # Weather Forecaster
-<<<<<<< Updated upstream
-=======
 
 The Weather Forecaster Application provides users with the ability to search for weather forecasts by city. The application is built using Angular for the frontend and Spring Boot for the backend, utilizing [OpenWeather APIs](https://openweathermap.org/api) to fetch weather data.
 
@@ -190,4 +188,3 @@ The following features are available:
 # About Weather Forecaster
 
 This is a sample project in order to demonstrate the skills such as API Integration, System Design & Architecture, Design Pattern, Java, Spring Boot, Angular, Docker, Jenkins and Github.
->>>>>>> Stashed changes
