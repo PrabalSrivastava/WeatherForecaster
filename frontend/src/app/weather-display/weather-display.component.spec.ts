@@ -23,7 +23,7 @@ describe('WeatherDisplayComponent', () => {
         { provide: WeatherService, useValue: mockWeatherService }, // Mock WeatherService
         {
           provide: ActivatedRoute,
-          useValue: { queryParams: of({ city: 'London' }) } // Mock ActivatedRoute to simulate query params
+          useValue: { queryParams: of({ city: 'London', offline: false }) } // Mock ActivatedRoute to simulate query params
         }
       ]
     }).compileComponents();
@@ -43,6 +43,6 @@ describe('WeatherDisplayComponent', () => {
   });
 
   it('should call weatherService.getWeather with the correct city', () => {
-    expect(weatherService.getWeather).toHaveBeenCalledWith('London');
+    expect(weatherService.getWeather).toHaveBeenCalledWith('London', false);
   });
 });

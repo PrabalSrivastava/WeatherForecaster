@@ -26,29 +26,11 @@ describe('CityInputComponent', () => {
     expect(component).toBeTruthy();
   });
 
-//   it('should navigate to /weather-display with the city query param on submit', () => {
-//     const router = TestBed.inject(RouterTestingModule);
-//     const navigateSpy = spyOn(router, 'navigate');
-//     component.city = 'London';
-//     component.submit();
-
-//     expect(navigateSpy).toHaveBeenCalledWith(['/weather-display'], { queryParams: { city: 'London' } });
-//   });
-
-//   it('should not navigate if city is empty', () => {
-//     const router = TestBed.inject(RouterTestingModule);
-//     const navigateSpy = spyOn(router, 'navigate');
-//     component.city = '';
-//     component.submit();
-
-//     expect(navigateSpy).not.toHaveBeenCalled();
-//   });
-
   it('should navigate to /weather-display with the city query param on submit', () => {
     const navigateSpy = spyOn(router, 'navigate').and.stub();
     component.city = 'London';
     component.submit();
-    expect(navigateSpy).toHaveBeenCalledWith(['/weather-display'], { queryParams: { city: 'London' } });
+    expect(navigateSpy).toHaveBeenCalledWith(['/weather-display'], { queryParams: { city: 'London', offline: false } });
   });
 
   it('should not navigate if city is empty', () => {
