@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WeatherService } from '../services/weather.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
@@ -19,7 +19,7 @@ export class WeatherDisplayComponent implements OnInit {
   errorMessage: string | undefined = undefined;
   offlineMode: boolean = false;
 
-  constructor(private route: ActivatedRoute, private weatherService: WeatherService, private router: Router) {}
+  constructor(private route: ActivatedRoute, private weatherService: WeatherService, private router: Router, private location: Location) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -49,5 +49,9 @@ export class WeatherDisplayComponent implements OnInit {
         this.weatherData = data;
       });
     }
-    }
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }
